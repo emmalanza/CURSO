@@ -1,0 +1,14 @@
+{
+    "firstName": "Emma",
+    "lastName": "Lanza",
+    "age": 28,
+    "address": {
+        "street": "Carreño Miranda",
+        "city": "Mieres"
+    },
+    "hobbies": [
+        "música",
+        "películas",
+        "programar html"
+    ]
+} 

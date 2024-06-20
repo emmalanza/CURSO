@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<personas>
+
+    <persona>
+        <nombre>Emma</nombre>
+        <apellidos>Lanza</apellidos>
+        <domicilio>
+            <calle>Carreño Miranda</calle>
+            <numero>30</numero>
+            <ciudad>Mieres</ciudad>
+        </domicilio>
+        <hobbies>
+            <hobbie>Musica</hobbie>
+            <hobbie>Peliculas</hobbie>
+        </hobbies>
+    </persona>
+
+    <persona>
+        <nombre>A</nombre>
+        <apellidos>B</apellidos>
+        <domicilio>
+            <calle>C</calle>
+            <numero>20</numero>
+            <ciudad>D</ciudad>
+        </domicilio>
+        <hobbies>
+            <hobbie>F</hobbie>
+            <hobbie>G</hobbie>
+        </hobbies>
+    </persona>
+
+    <persona>
+        <nombre>H</nombre>
+        <apellidos>I</apellidos>
+        <domicilio>
+            <calle>J</calle>
+            <numero>10</numero>
+            <ciudad>K</ciudad>
+        </domicilio>
+        <hobbies>
+            <hobbie>L</hobbie>
+            <hobbie>M</hobbie>
+        </hobbies>
+    </persona>
+
+</personas>

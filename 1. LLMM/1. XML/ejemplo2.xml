@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<personas>
+
+    <persona>
+        <nombre>Emma</nombre>
+        <apellidos>Lanza</apellidos>
+        <domicilio calle="Carreño Miranda" num="30" ciudad="Mieres"></domicilio>
+        <hobbies>
+            <hobbie fav="si">Musica</hobbie>
+            <hobbie fav="no">Peliculas</hobbie>
+        </hobbies>
+    </persona>
+
+</personas>

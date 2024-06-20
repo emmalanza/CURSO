@@ -1,0 +1,15 @@
+{
+    "titulo": "El Señor de los Anillos",
+    "año": 1954,
+    "autor": {
+        "nombre": "J. R. R. Tolkien",
+        "nacionalidad": "Sudafricano"
+    },
+    "genero": [
+        "Literatura Fantástica", 
+        "Aventuras",
+        "Libro de caballerías"
+    ],
+    "editorial": "Minotauro",
+    "esBestSeller": true
+}

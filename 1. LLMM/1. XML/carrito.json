@@ -1,0 +1,29 @@
+{
+    "carrito": [
+        {
+            "nombre": "champú",
+            "precio": 1.60,
+            "marcas": [
+                "hs",
+                "fructis"
+            ]
+        },
+        {
+            "nombre": "gel",
+            "precio": 2.00,
+            "marcas": [
+                "hacendado",
+                "alimerka"
+            ]
+        },
+        {
+            "nombre": "zumo",
+            "precio": 1.50,
+            "marcas": [
+                "zumosol",
+                "biosolan",
+                "pascual"
+            ]
+        }
+    ]
+}
