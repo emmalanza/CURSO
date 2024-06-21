@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+
+    <style> 
+
+        body {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        div.shit {
+            width: 150px;
+        }
+
+        input,
+        label{
+            margin-bottom: 15px;
+        }
+
+        select{
+            margin-bottom: 15px;
+            width: 150px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <h2>Contacto</h2>
+    <form action="">
+
+        <div class="shit">
+
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Introduce tu nombre">
+            
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Introduce tu correo">
+    
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" id="password" placeholder="Introduce la contraseña">
+    
+            <label for="edad">Edad</label>
+            <input type="number" name="edad" id="edad">
+    
+            <label for="FNacimiento">Fecha de nacimiento</label>
+            <input type="date" name="FNacimiento" id="Fnacimiento">
+    
+            <label for="ciudad">Ciudad</label>
+            <select name="ciudad" id="ciudad">
+                <option value="mieres">Mieres</option>
+                <option value="oviedo">Oviedo</option>
+                <option value="gijon">Gijón</option>
+            </select>
+
+        </div>
+
+        <h3>Indica tu género</h3>
+        <input type="radio" name="genre" id="masc">
+        <label for="masc">Masculino</label><br>
+        <input type="radio" name="genre" id="fem">
+        <label for="fem">Femenino</label><br>
+        <input type="radio" name="genre" id="none">
+        <label for="none">Prefiero no decirlo</label><br>
+        
+        <input type="submit" name="" id="" value="Enviar">
+
+    </form>
+</body>
+</html>

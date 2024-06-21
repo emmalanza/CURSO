@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style> 
+
+        body {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        div.shit {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        input,
+        label{
+            margin-bottom: 20px;
+        }
+
+        select{
+            margin-bottom: 15px;
+            width: 150px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Formulario Empresa</h1>
+
+    <form action="">
+
+        <div class="shit">
+
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Introduce tu nombre">
+            
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Introduce tu correo">
+
+            <label for="departamento">Departamento</label>
+            <select name="departamento" id="departamento">
+                <option value="rrhh">RRHH</option>
+                <option value="mkt">Marketing</option>
+                <option value="ventas">Ventas</option>
+                <option value="logistica">Logística</option>
+            </select>
+
+        </div>
+
+        <h5>Tipo de jornada</h5>
+        <input type="radio" name="jornada" id="parc">
+        <label for="parc">Parcial</label><br>
+        <input type="radio" name="jornada" id="completa">
+        <label for="completa">Completa</label><br>
+        <input type="radio" name="jornada" id="remota">
+        <label for="remota">Remota/Híbrida</label><br>
+
+        <label for="cv">Inserta tu currículum</label>
+        <div class="shit">
+            <input type="file" name="cv" id="cv">
+        </div>
+
+        <textarea name="comentarios" id="comentarios" rows="5" cols="25">
+        Inserta un comentario si quieres 😉
+        </textarea>
+
+        <h2>Check this:</h2>
+        <input type="checkbox" name="check" id="check">
+        <label for="check">Check it.</label><br>
+
+        <input type="submit" value="Enviar">
+
+    </form>
+
+</body>
+
+</html>
