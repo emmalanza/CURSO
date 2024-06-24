@@ -1,0 +1,25 @@
+body {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+div.shit {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+input,
+label{
+    margin-bottom: 20px;
+}
+
+select{
+    margin-bottom: 15px;
+    width: 150px;
+}
+
+input[type="submit"] {
+    color: aliceblue;
+    background-color: rgb(79, 119, 240);
+    border: 2px outset rgb(76, 131, 197);
+    padding: 12px 16px;
+}
