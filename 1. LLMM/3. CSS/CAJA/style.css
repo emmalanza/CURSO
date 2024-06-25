@@ -1,3 +1,14 @@
+body {
+    background-image: url(https://cnnespanol.cnn.com/wp-content/uploads/2021/06/CC_anounce_Axolotl.jpeg?quality=100&strip=info&w=940&h=530&crop=1);
+    background-size: cover;
+}
+
+h1 {
+    color: white;
+    font-size: 100px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
 .container {
     display: flex;
 }
