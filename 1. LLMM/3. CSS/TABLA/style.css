@@ -1,0 +1,19 @@
+.blue { 
+    background-color: rgb(0, 166, 255);
+}
+
+.pink {
+    background-color: pink;
+}
+
+#purple {
+    background-color: purple;
+}
+
+#yellow {
+    background-color: rgb(240, 228, 58);
+}
+
+table {
+    width: 100%;
+}
