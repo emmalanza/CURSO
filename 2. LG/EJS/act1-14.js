@@ -54,9 +54,9 @@ let fibo= `${ultimo} ${penultimo}`;
 for (let i = 1; i < 5; i++) {
 
     ultimo = ultimo + penultimo;
-    // console.log(`ultimo ${ultimo} penultimo ${penultimo}`);   
+    console.log(`ultimo ${ultimo} penultimo ${penultimo}`);   
     console.log(`Secuencia: ${fibo} ${ultimo} 🍕`);
     fibo = fibo + " " + ultimo;
     penultimo = ultimo - penultimo;
-    // console.log("ult ", ultimo, "penult", penultimo );
+    console.log("ult ", ultimo, "penult", penultimo );
 }
