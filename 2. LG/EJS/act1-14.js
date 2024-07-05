@@ -33,7 +33,7 @@
 
 // const dni = window.prompt("Intruzcaa un DNI:");
 // const dni = "71777342T";
-// let nums; let letra;
+// let nums = ""; let letra = "";
 
 // for (let i = 0; i < dni.length; i++) {
 //     if (i < 8){
@@ -48,15 +48,40 @@
 // console.log("La letra del dni es: ", letra);
 // console.log(letra.length);
 
-let ultimo = 1; let penultimo = 1;
-let fibo= `${ultimo} ${penultimo}`;
+// let ultimo = 1; let penultimo = 1;
+// let fibo= `${ultimo} ${penultimo}`;
 
-for (let i = 1; i < 5; i++) {
+// for (let i = 1; i < 5; i++) {
 
-    ultimo = ultimo + penultimo;
-    console.log(`ultimo ${ultimo} penultimo ${penultimo}`);   
-    console.log(`Secuencia: ${fibo} ${ultimo} 🍕`);
-    fibo = fibo + " " + ultimo;
-    penultimo = ultimo - penultimo;
-    console.log("ult ", ultimo, "penult", penultimo );
+//     ultimo = ultimo + penultimo;
+//     console.log(`ultimo ${ultimo} penultimo ${penultimo}`);   
+//     console.log(`Secuencia: ${fibo} ${ultimo} 🍕`);
+//     fibo = fibo + " " + ultimo;
+//     penultimo = ultimo - penultimo;
+//     console.log("ult ", ultimo, "penult", penultimo );
+// }
+
+
+let x = window.prompt("Introduzca un número:");
+// console.log(typeof x === "string");
+x = parseInt(x,10);
+// console.log(typeof x === "string");
+// console.log(x===13);
+
+if (x===13) {
+    console.log("Mala suerte");
+} else {
+    console.log(`Todos los números impares hasta ${x}`)
+    for (let i = 1; i <= x; i++){
+        if ((i % 2) === 1){
+            console.log(i);
+        }
+    }
+
+    console.log(`Todos los múltiplos de 3 hasta ${x}`)
+    for (let i = 1; i <= x; i++){
+        if ((i % 3) === 0){
+            console.log(i);
+        }
+    }
 }
