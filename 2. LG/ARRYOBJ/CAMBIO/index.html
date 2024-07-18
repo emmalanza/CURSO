@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💸💸💸💸</title>
+    <link rel="shorcut icon" href="cuanto.png">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="cambio.js"></script>
+</head>
+<body>
+    <h1>Introduzca una cantidad y seleccione como quiere que se le devuelva el cambio 🤑</h1>
+
+    <div class="formulario">
+        
+        <form onsubmit="getFormData(event)" id="money">
+
+            <div class="cajita">    
+                <h2>Cantidad a devolver:</h2>
+                <input type="text" name="cantidad" id="cantidad" placeholder="Introduzca cantidad">
+            </div>
+
+            <div class="billetes">
+                <h2>Billetes:</h2>
+                <label for="500e">500€</label> <input type="checkbox" name="bill" id="500e" value="500">
+                <label for="200e">200€</label> <input type="checkbox" name="bill" id="200e" value="200">
+                <label for="100e">100€</label> <input type="checkbox" name="bill" id="100e" value="100">
+                <label for="50e">50€</label> <input type="checkbox" name="bill" id="50e" value="50">
+                <label for="20e">20€</label> <input type="checkbox" name="bill" id="20e" value="20">
+                <label for="10e">10€</label> <input type="checkbox" name="bill" id="10e" value="10">
+                <label for="5e">5€</label> <input type="checkbox" name="bill" id="5e" value="5">
+            </div>
+
+            <div class="monedas">
+                <h2>Monedas de EURO:</h2>
+                <label for="2e">2€</label> <input type="checkbox" name="eu" id="2e" value="2">
+                <label for="1e">1€</label> <input type="checkbox" name="eu" id="1e" value="1">
+            </div>
+
+            <div class="centimos">
+                <h2>Monedas de CÉNTIMO:</h2>
+                <label for="50c">50cents</label> <input type="checkbox" name="cent" id="50c" value="50">
+                <label for="20c">20cents</label> <input type="checkbox" name="cent" id="20c" value="20">
+                <label for="10c">10cents</label> <input type="checkbox" name="cent" id="10c" value="10">
+                <label for="5c">5cents</label> <input type="checkbox" name="cent" id="5c" value="5">
+                <label for="2c">2cents</label> <input type="checkbox" name="cent" id="2c" value="2">
+                <label for="1c">1cents</label> <input type="checkbox" name="cent" id="1c" value="1">
+            </div>
+
+            <button type="submit" class="cambiar">CAMBIAR</button>
+            
+        </form>
+        
+        <button onclick="borrar()" class="borrar">BORRAR</button>
+
+    </div>
+
+    <div id="parrafo"></div>
+
+</body>
+</html>

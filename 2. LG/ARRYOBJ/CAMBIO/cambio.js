@@ -1,9 +1,15 @@
 console.log("Hola funciono ^^");
 
-var entero = "";
-var decimal = "";
-// var valoresAceptados = /^[0-9]+$/;
-var regexNum = /^\d+$/;
+let entero = "";
+let decimal = "";
+// let valoresAceptados = /^[0-9]+$/;
+let regexNum = /^\d+$/;
+let totalBill = new Array;   
+let totalEu = new Array;
+let totalCents = new Array;
+let newP = "";
+let newContent = "";
+const currentDiv = document.getElementById("parrafo");
 
 // let billetes = [500, 200, 100, 50, 20, 10, 5];
 // let euros = [2, 1];
@@ -11,12 +17,17 @@ var regexNum = /^\d+$/;
 
 function getFormData(ev){
 
+    //restauro todos los valores a su valor por defecto
     entero = "";
     decimal = "";
+    totalBill = new Array;
+    totalEu = new Array;
+    totalCents = new Array;
     let cantidad = 0;
     let checkedB = [];
     let checkedE = [];
     let checkedC = [];
+    currentDiv.innerHTML = "";
 
     ev.preventDefault()
     console.log("Funcion getFormData funcionando jeje");
@@ -25,6 +36,7 @@ function getFormData(ev){
     const checkedBoxes = document.querySelectorAll("input:checked");
     //console.log(checkedBoxes, cantidad);
 
+    //recorro los checked y los meto en su array correspondiente
     checkedBoxes.forEach(element => {
         console.log("value",element.value, "name", element.name);
         if(element.name === "bill"){
@@ -39,15 +51,31 @@ function getFormData(ev){
     checkedB.sort((a,b) => b-a);
     checkedE.sort((a,b) => b-a);
     checkedC.sort((a,b) => b-a);
-    console.log(checkedB);
-    console.log(checkedE);
-    console.log(checkedC);
+    console.log("Billetes checked: ",checkedB);
+    console.log("Euros checked: ", checkedE);
+    console.log("Centimos checked: ", checkedC);
 
+    //si la funcion comprobar cantidad devuelve false es que no se puede operar con esa cantidad
     if(comprobarCantidad(cantidad, checkedB,checkedE,checkedC) !== true){
         document.getElementById("money").reset();
         window.alert("No se puede desglosar la cantidad de esa manera. Seleccione otros importes.");
-    }else{
-        desglosarCantidad(checkedB,checkedE,checkedC);
+    }else{ 
+        if(entero !== "" && decimal !== ""){
+            //aqui compruebo si hay decimales para mostrar un mensaje u otro :)
+            if(isNaN(decimal)){
+            newP = document.createElement("p");   
+            newContent = document.createTextNode(`Desglose de ${entero} €`);
+            newP.appendChild(newContent);
+            currentDiv.appendChild(newP);
+            }else{
+            newP = document.createElement("p");   
+            newContent = document.createTextNode(`Desglose de ${entero} € y ${decimal} céntimos`);
+            newP.appendChild(newContent);
+            currentDiv.appendChild(newP);
+            }
+    
+            desglosarCantidad(checkedB,checkedE,checkedC); 
+        }
     }
 }
 
@@ -105,7 +133,7 @@ function separarCantidad(cant) {
 function comprobarCantidad(cant, billetes, euros, cents){
 
     console.log("Funcion comprobar :P");
-    //compruebo que la cantidad es correcta para poder empezar a operar con ella
+    //compruebo que la cantidad es correcta (llamando a separar cantidad) para poder empezar a operar con ella
     if(separarCantidad(cant) === true){ 
 
         let ent = entero;
@@ -153,17 +181,15 @@ function comprobarCantidad(cant, billetes, euros, cents){
         if(!isNaN(dec)){
             for (let i = 0; i < cents.length; i++) {
                 if((dec / cents[i]) >= 1){
-                console.log(`Monedas de ${cents[i]} céntimos: ${parseInt(dec / cents[i])}`)
                 dec = dec- (cents[i] * parseInt(dec/cents[i]));
                 }
             }
         }
 
-
         //si despues de comprobar que con los centimos que tenemos no se puede
         //desglosar la parte decimal, devolvemos false y pedimos que se seleccionen otros importes
         if(dec >= 1){
-            console.log("No se ha podido desglosar la cantidad conrrectamente.");
+            console.log("No se ha podido desglosar la cantidad correctamente.");
             return false;
         }
 
@@ -174,25 +200,21 @@ function comprobarCantidad(cant, billetes, euros, cents){
     }else {  //si la funcion separarCantidad devuelve false pedimos que se ingrese un número 
         document.getElementById("money").reset();
         window.alert("Tienes que ingresar un número");
+        //ponemos las variables entero y decimal a su valor por defecto para hacer comprobaciones
+        entero = ""; decimal = ""; 
         return true;
     }
 
 }
 
 function desglosarCantidad(billetes, euros, cents){
-    
-    //aqui compruebo si hay decimales para mostrar un mensaje u otro :)
-    if(isNaN(decimal)){
-        console.log("Desglose de", entero, "€");
-    }else{
-
-        console.log("Desglose de", entero, "€ y", decimal, "céntimos");
-    }
-
+ 
     //calculamos cuantos billetes de cada son
     for (let i = 0; i < billetes.length; i++) {
         if((entero / billetes[i]) >= 1){
-            console.log(`Billetes de ${billetes[i]} €: ${parseInt(entero / billetes[i])}`)
+            //console.log(`Billetes de ${billetes[i]} €: ${parseInt(entero / billetes[i])}`);
+            //aqui hacemos push de otro array que contiene el importe y la cantidad por la que se ha podido dividir
+            totalBill.push([billetes[i], parseInt(entero/billetes[i])]);
             entero = entero-(billetes[i] * parseInt(entero / billetes[i]));
         }
     }
@@ -202,7 +224,9 @@ function desglosarCantidad(billetes, euros, cents){
     if (entero > 0){
         for (let i = 0; i < euros.length; i++) {
             if((entero / euros[i]) >= 1){
-                console.log(`Monedas de ${euros[i]} €: ${parseInt(entero / euros[i])}`)
+                //console.log(`Monedas de ${euros[i]} €: ${parseInt(entero / euros[i])}`);
+                //aqui hacemos push de otro array que contiene el importe y la cantidad por la que se ha podido dividir
+                totalEu.push([euros[i], parseInt(entero/euros[i])]);
                 entero = entero- (euros[i] * parseInt(entero / euros[i]));
             }
         }
@@ -212,23 +236,54 @@ function desglosarCantidad(billetes, euros, cents){
         entero = entero * 100;
         for (let i = 0; i < cents.length; i++) {
             if(((entero) / cents[i]) >= 1){
-            console.log(`Monedas de ${cents[i]} céntimos: ${parseInt(entero / cents[i])}`)
-            entero = entero - (cents[i] * parseInt(entero/cents[i]));
+                //console.log(`Monedas de ${cents[i]} céntimos: ${parseInt(entero / cents[i])}`);
+                //aqui hacemos push de otro array que contiene el importe y la cantidad por la que se ha podido dividir
+                totalCents.push([cents[i], parseInt(entero/cents[i])]);
+                entero = entero - (cents[i] * parseInt(entero/cents[i]));
             }
         }
+
     }
 
     //calculamos cuantos centimos de cada son en caso de que haya
     if(!isNaN(decimal)){
         for (let i = 0; i < cents.length; i++) {
-    
             if((decimal / cents[i]) >= 1){
-                console.log(`Monedas de ${cents[i]} céntimos: ${parseInt(decimal / cents[i])}`)
+                //console.log(`Monedas de ${cents[i]} céntimos: ${parseInt(decimal / cents[i])}`);
+                //aqui hacemos push de otro array que contiene el importe y la cantidad por la que se ha podido dividir
+                totalCents.push([cents[i], parseInt(decimal / cents[i])]);
                 decimal = decimal- (cents[i] * parseInt(decimal/cents[i]));
+
             }
         }
     }
+    
+    mostrarMensaje();
 }
 
-//TODO juntar los céntimos de la parte enntera y decimal, en el caso en que haya que desglosar la
-//TODO parte entera en céntimos
+function mostrarMensaje () {  
+    //recorro los arrays y los convierto en mensajes
+    for (let i = 0; i < totalBill.length; i++) {       
+        newP = document.createElement("p");
+        newContent = document.createTextNode(`Billetes de ${totalBill[i][0]} €: ${totalBill[i][1]}\n`);
+        newP.appendChild(newContent);
+        currentDiv.appendChild(newP);
+    }
+    for (let i = 0; i < totalEu.length; i++) {   
+        newP = document.createElement("p");    
+        newContent = document.createTextNode(`Monedas de ${totalEu[i][0]} €: ${totalEu[i][1]}\n`);
+        newP.appendChild(newContent);
+        currentDiv.appendChild(newP);
+    }
+    for (let i = 0; i < totalCents.length; i++) {    
+        newP = document.createElement("p");   
+        newContent = document.createTextNode(`Monedas de ${totalCents[i][0]} céntimos: ${totalCents[i][1]}\n`);
+        newP.appendChild(newContent);
+        currentDiv.appendChild(newP);
+    }     
+}
+
+function borrar() {
+    // document.getElementById("money").reset();
+    currentDiv.innerHTML = "";
+}

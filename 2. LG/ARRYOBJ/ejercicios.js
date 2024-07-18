@@ -234,11 +234,11 @@
 
 //Ejercicio Repaso 2
 
-const correctPass = "tiburon elegante";
-let pass = window.prompt("Introduzca la contraseña:");
+// const correctPass = "tiburon elegante";
+// let pass = window.prompt("Introduzca la contraseña:");
 
-while(pass!== correctPass) {
-    pass = window.prompt("Introduzca la contraseña:");
-}
+// while(pass!== correctPass) {
+//     pass = window.prompt("Introduzca la contraseña:");
+// }
 
-console.log("Adelante, puedes pasar.");
+// console.log("Adelante, puedes pasar.");
